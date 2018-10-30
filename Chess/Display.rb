@@ -1,5 +1,7 @@
+require_relative "Board"
+require_relative "cursor"
+
 require 'colorize'
-require 'cursor'
 
 class Display
   def initialize(board)
@@ -7,5 +9,27 @@ class Display
     @cursor = Cursor.new([0,0], board)
   end
 
+  def render
+    @board.grid.each do |row|
+      row.each do |spot|
+        if spot.nil?
+          print "# "
+        else
+          print "P "
+        end
+      end
 
+      puts " "
+    end
+  end
+end
+
+def display_with_cursor
+
+end
+
+if __FILE__ == $PROGRAM_NAME
+  board = Board.new
+  display = Display.new(board)
+  display.render
 end

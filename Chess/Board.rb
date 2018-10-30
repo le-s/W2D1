@@ -2,6 +2,9 @@ require_relative "Piece"
 require "byebug"
 
 class Board
+
+  attr_accessor :grid
+
   def initialize
     @grid = Array.new(8){Array.new(8)}
     populate_board
@@ -30,5 +33,9 @@ class Board
 
     self[end_pos] = self[start_pos]
     self[start_pos] = nil
+  end
+
+  def self.valid_pos?(pos)
+    (pos[0] >= 0 && pos[0] <= 7) && (pos[1] >= 0 && pos[1] <= 7)
   end
 end
