@@ -1,7 +1,8 @@
 class Piece
   def initialize()
-    # @color = color
-    # @board = board
-    # @pos = pos
+
+  end
+
+  def moves
   end
 end
