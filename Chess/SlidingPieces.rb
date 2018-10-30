@@ -34,17 +34,18 @@ class Queen < Piece
   def move_dirs
     horizontal_dirs + diagonal_dirs
   end
+
 end
 
 module Slideable
   HORIZONTAL_DIRS = [[1,0], [0,1], [-1,0], [0,-1]]
   DIAGONAL_DIRS = [[1,1], [-1,1], [-1,-1], [1,-1]]
 
-  def moves(current_pos)
+  def moves
     possible = move_dirs
     result = []
     possible.each do |row|
-      result << [current_pos[0] + row[0], current_pos[1] + row[1]]
+      result << [@current_pos[0] + row[0], @current_pos[1] + row[1]]
     end
 
     result
@@ -58,7 +59,9 @@ module Slideable
     DIAGONAL_DIRS
   end
 
-  def grow_unblocked_moves_in_dir(x, y)
+  def grow_unblocked_moves_in_dir(dx,dy)
+    result = []
     
+    result
   end
 end
