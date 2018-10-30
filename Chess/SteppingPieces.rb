@@ -1,7 +1,7 @@
 require_relative "Piece"
 
 class Knight < Piece
-  include Slideable
+  include Stepable
   def move_diffs
 
   end
@@ -12,7 +12,7 @@ class Knight < Piece
 end
 
 class King < Piece
-  include Slideable
+  include Stepable
   def move_diffs
 
   end
@@ -25,4 +25,6 @@ end
 module Stepable
   def moves
   end
+
+
 end
