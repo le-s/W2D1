@@ -4,12 +4,14 @@ require "byebug"
 class Board
   def initialize
     @grid = Array.new(8){Array.new(8)}
+    populate_board
+  end
 
+  def populate_board
     @grid[0].map! {|el| el = Piece.new}
     @grid[1].map! {|el| el = Piece.new}
     @grid[6].map! {|el| el = Piece.new}
     @grid[7].map! {|el| el = Piece.new}
-
   end
 
   def [](pos)

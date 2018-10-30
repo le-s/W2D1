@@ -76,8 +76,26 @@ class Cursor
   end
 
   def handle_key(key)
+    case key
+    when "h", "a", "\e[D"
+      update_pos(MOVES[left])
+    when "j", "s", "\e[B"
+      update_pos(MOVES[down])
+    when "k", "w", "\e[A"
+      update_pos(MOVES[up])
+    when "l", "d", "\e[C"
+      update_pos(MOVES[right])
+    when " ", "\r"
+      @cursor_pos
+    when "\u0003"
+      Process.exit(0)
+    else
+
+    end
   end
 
   def update_pos(diff)
+    @cursor_pos[0] += diff[0]
+    @cursor_pos[1] += diff[1]
   end
 end
