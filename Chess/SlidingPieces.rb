@@ -19,7 +19,7 @@ class Bishop < Piece
 
   end
 
-  def move_dirs
+  def move_dirs(current_pos)
 
   end
 end
@@ -31,7 +31,7 @@ class Queen < Piece
 
   end
 
-  def move_dirs
+  def move_dirs(current_pos)
 
   end
 end
@@ -41,7 +41,7 @@ module Slideable
   DIAGONAL_DIRS = []
 
   def moves
-    
+
   end
 
   def horizontal_dirs
