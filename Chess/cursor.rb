@@ -77,20 +77,20 @@ class Cursor
 
   def handle_key(key)
     case key
-    when "h", "a", "\e[D"
-      update_pos(MOVES[left])
-    when "j", "s", "\e[B"
-      update_pos(MOVES[down])
-    when "k", "w", "\e[A"
-      update_pos(MOVES[up])
-    when "l", "d", "\e[C"
-      update_pos(MOVES[right])
-    when " ", "\r"
+    when :left
+      update_pos(MOVES[key])
+    when :down
+      update_pos(MOVES[key])
+    when :up
+      update_pos(MOVES[key])
+    when :right
+      update_pos(MOVES[key])
+    when :space, :return
       @cursor_pos
-    when "\u0003"
+    when :ctrl_c
       Process.exit(0)
     else
-
+      puts "Not working!!!"
     end
   end
 
@@ -102,5 +102,6 @@ class Cursor
       @cursor_pos[0] = new_x
       @cursor_pos[1] = new_y
     end
+    return nil
   end
 end
