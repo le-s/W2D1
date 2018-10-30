@@ -3,11 +3,11 @@ require_relative "Piece"
 class Knight < Piece
   include Stepable
   def move_dirs
-    possible_moves = [[1,2], [1,-2], [-1,-2], [-1, 2], [2,1], [-2,1], [2,-1], [-2,-1]]
+    [[1,2], [1,-2], [-1,-2], [-1, 2], [2,1], [-2,1], [2,-1], [-2,-1]]
   end
 
   def symbol
-
+    :N
   end
 end
 
@@ -15,11 +15,11 @@ class King < Piece
   include Stepable
 
   def move_dirs
-    possible_moves = [[1,1], [1,0], [1,-1], [0,-1], [-1,-1], [-1,0], [-1,1], [0,1]]
+    [[1,1], [1,0], [1,-1], [0,-1], [-1,-1], [-1,0], [-1,1], [0,1]]
   end
 
   def symbol
-
+    :K
   end
 end
 
