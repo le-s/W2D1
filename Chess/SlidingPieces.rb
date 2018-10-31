@@ -47,8 +47,6 @@ module Slideable
     possible.each do |row|
       result << [@current_pos[0] + row[0], @current_pos[1] + row[1]]
     end
-
-    result
   end
 
   def horizontal_dirs
@@ -61,7 +59,12 @@ module Slideable
 
   def grow_unblocked_moves_in_dir(dx,dy)
     result = []
-    
+    position = @current_pos
+    while @board.valid_pos?(position) || @board[position].color == self.color
+      position = [position[0] + dx, position[1] + dy]
+      result << position
+    end
+
     result
   end
 end
